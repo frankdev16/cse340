@@ -1,30 +1,99 @@
-html, body {
-    background-color: lightblue;
-    font-family: Arial, sans-serif;
+:root {
+    --primary-color: #0f4c81;
+    --secondary-color: #212529;
+    --bg-light: #f8f9fa;
+    --text-main: #212529;
+    --nav-text: #ffffff;
+    --accent-hover: #ffd700;
+    --main-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
 body {
-    nav {
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    font-family: var(--main-font);
+    background-color: var(--bg-light); 
+    color: var(--text-main); 
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-        li {
-            display: inline;
-            margin-right: 15px;
-        }
+/* Navigation Bar */
+nav {
+    background-color: var(--primary-color); 
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-        a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 30px;
+}
 
-            &:hover {
-                color: #0066cc;
-            }
-        }
-    }
-}           
+nav a {
+    text-decoration: none;
+    color: var(--nav-text); 
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-hover); 
+}
+
+/* Main Content Area */
+main {
+    flex: 1; 
+    width: 100%;
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    color: #495057; /* Keeping a subtle gray for subheadings */
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-logo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); 
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--bg-light);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+}
