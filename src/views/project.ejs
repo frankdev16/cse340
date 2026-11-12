@@ -1,5 +1,4 @@
 <%- include('partials/header') %>
-
     <main>
         <h1>
             <%= title %>
@@ -24,6 +23,20 @@
                 <%= project.organization_name %>
             </a>
         </p>
-    </main>
 
+        <h3>Category Tags:</h3>
+        <% if (categories && categories.length> 0) { %>
+            <ul>
+                <% categories.forEach(cat=> { %>
+                    <li>
+                        <a href="/category/<%= cat.category_id %>">
+                            <%= cat.name %>
+                        </a>
+                    </li>
+                    <% }) %>
+            </ul>
+            <% } else { %>
+                <p>No category tags for this project.</p>
+                <% } %>
+    </main>
     <%- include('partials/footer') %>

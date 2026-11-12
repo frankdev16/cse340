@@ -8,7 +8,9 @@
             <% categories.forEach(category=> { %>
                 <li>
                     <strong>
-                        <%= category.name %>
+                        <a href="/category/<%= category.category_id %>">
+                            <%= category.name %>
+                        </a>
                     </strong>
                 </li>
                 <% }); %>
