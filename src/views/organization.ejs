@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+    <main>
+        <h1>
+            <%= title %>
+        </h1>
+
+        <% if (organizationDetails) { %>
+            <h2>
+                <%= organizationDetails.name %>
+            </h2>
+            <p><strong>Description:</strong>
+                <%= organizationDetails.description %>
+            </p>
+            <p><strong>Contact Email:</strong> <a href="mailto:<%= organizationDetails.contact_email %>">
+                    <%= organizationDetails.contact_email %>
+                </a></p>
+
+            <h3>Associated Projects:</h3>
+            <% if (projects && projects.length> 0) { %>
+                <ul>
+                    <% projects.forEach(project=> { %>
+                        <li>
+                            <a href="/project/<%= project.project_id %>">
+                                <%= project.title %>
+                            </a>
+                            (Date: <%= new Date(project.date).toDateString() %>)
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } else { %>
+                    <p>No projects currently listed for this organization.</p>
+                    <% } %>
+                        <% } else { %>
+                            <p>Organization not found.</p>
+                            <% } %>
+    </main>
+
+    <%- include('partials/footer') %>

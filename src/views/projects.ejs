@@ -1,17 +1,24 @@
-
 <%- include('partials/header') %>
-<main>
-    <h2>
-        <%= title %>
-    </h2>
-    <ul>
-        <% projects.forEach(project=> { %>
-            <li>
-                <%= new Date(project.date).toDateString() %>:
-                    <%= project.title %>
-                        (<%= project.organization_name %>)
-            </li>
-            <% }) %>
-    </ul>
-</main>
-<%- include('partials/footer') %>
+    <main>
+        <h2>
+            <%= title %>
+        </h2>
+        <ul>
+            <% projects.forEach(project=> { %>
+                <li>
+                    <%= new Date(project.date).toDateString() %>:
+
+                        <!-- Make the project title a link to its details page -->
+                        <a href="/project/<%= project.project_id %>">
+                            <%= project.title %>
+                        </a>
+
+                        <!-- Make the organization name a link to its organization page -->
+                        (<a href="/organization/<%= project.organization_id %>">
+                            <%= project.organization_name %>
+                        </a>)
+                </li>
+                <% }) %>
+        </ul>
+    </main>
+    <%- include('partials/footer') %>
